@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域动态简报 · 2026年6月23日</title>
+<style>
+  :root {
+    --bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --primary: #2563eb;
+    --primary-light: #dbeafe;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --tag-physical: #f59e0b;
+    --tag-embodied: #8b5cf6;
+    --tag-edge: #10b981;
+    --tag-reasoning: #ef4444;
+    --tag-capital: #3b82f6;
+    --tag-policy: #6366f1;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    padding: 0 0 60px 0;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 4px; }
+
+  /* Container */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  /* News Card */
+  .news-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-top: 28px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+  .news-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+  .news-header {
+    padding: 20px 24px 0;
+  }
+  .news-number {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .news-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .news-time {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+  }
+  .news-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: white;
+  }
+  .tag.physical { background: var(--tag-physical); }
+  .tag.embodied { background: var(--tag-embodied); }
+  .tag.edge { background: var(--tag-edge); }
+  .tag.reasoning { background: var(--tag-reasoning); }
+  .tag.capital { background: var(--tag-capital); }
+  .tag.policy { background: var(--tag-policy); }
+
+  .news-body { padding: 16px 24px; }
+  .news-body h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    margin-top: 14px;
+  }
+  .news-body h3:first-child { margin-top: 0; }
+  .news-body p, .news-body li {
+    font-size: 14.5px;
+    color: #334155;
+    line-height: 1.8;
+  }
+  .news-body ul { padding-left: 18px; }
+  .news-body li { margin-bottom: 4px; }
+  .news-body strong { color: var(--text); font-weight: 600; }
+
+  .news-links {
+    background: #f1f5f9;
+    padding: 14px 24px 18px;
+    border-top: 1px solid var(--border);
+  }
+  .news-links h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .news-links a {
+    display: block;
+    font-size: 13.5px;
+    color: var(--primary);
+    text-decoration: none;
+    padding: 4px 0;
+    line-height: 1.6;
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.2s;
+  }
+  .news-links a:hover { border-bottom-color: var(--primary); }
+  .news-links a::before { content: "🔗 "; opacity: 0.6; }
+
+  /* Summary Table */
+  .summary-section {
+    margin-top: 36px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .summary-section h2 {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 20px 24px 12px;
+    color: var(--text);
+  }
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .summary-table th {
+    background: #f1f5f9;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-align: left;
+    padding: 10px 16px;
+  }
+  .summary-table td {
+    font-size: 14px;
+    color: #334155;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    line-height: 1.7;
+  }
+  .summary-table td:first-child {
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--primary);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* Back to top */
+  .back-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .back-top.show { opacity: 1; }
+  .back-top:hover { background: #1d4ed8; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>AI 领域动态简报</h1>
+  <div class="hero-meta">
+    <span>📅 2026年6月23日</span>
+    <span>🔬 AI 推理 · 物理 AI · 端侧 AI · 具身智能</span>
+    <span>🌏 硅谷 + 国内</span>
+    <span>🔧 上游零部件 + 下游应用</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 01 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">01</span>
+      <div class="news-title">NVIDIA 发布 Isaac GR00T 参考人形机器人，联合 Unitree 推进物理 AI 商业化</div>
+      <div class="news-time">2026年6月1日 · Computex 2026 主题演讲</div>
+      <div class="news-tags">
+        <span class="tag physical">物理 AI</span>
+        <span class="tag embodied">具身智能</span>
+        <span class="tag capital">硅谷动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>黄仁勋在台北 Computex 2026 上发布了 NVIDIA 首款商用化人形机器人参考设计 Isaac GR00T，将自研 Blackwell GPU 作为"大脑"，搭配中国机器人公司宇树科技（Unitree）的机械身体和新加坡 Sharpa 的灵巧手，形成一个开放的标准蓝图。NVIDIA 的定位是做机器人行业的"操作系统/平台提供商"，而非自己造整机，与特斯拉垂直整合的 Optimus 路线形成明确分化。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li>这是 NVIDIA 从"芯片供应商"向"物理 AI 平台架构师"转型的关键信号。通过商品化硬件层、绑定自有 GPU 生态，复刻了其在数据中心 CUDA 时代的护城河逻辑。</li>
+        <li>选择 Unitree 作为硬件合作伙伴，说明中国低成本高性能机器人底盘已获得全球顶级 AI 巨头认可，但也带来潜在的地缘政治与出口管制风险。</li>
+        <li>对上游而言，Blackwell GPU 在机器人端的部署意味着推理算力需求的新增量级市场；对下游而言，标准化参考设计将大幅降低工业、科研场景中人形机器人的开发门槛。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Global-Robotics-Leaders-Take-Physical-AI-to-the-Real-World/" target="_blank">NVIDIA 官方新闻稿</a>
+      <a href="https://www.alphapilot.tech/zh-CN/discover/nvidia-unveils-isaac-gr00t-humanoid-robot-with-unitree-hardware-amid-global-physical-ai-race" target="_blank">Forbes：NVIDIA、Tesla、Unitree 与全球物理 AI 竞赛</a>
+      <a href="https://news.cgtn.com/news/2026-06-01/NVIDIA-Unitree-unveil-new-humanoid-powered-by-Isaac-GR00T-1NCWlv6VRde/p.html" target="_blank">CGTN：NVIDIA 与 Unitree 发布搭载 Isaac GR00T 的新人形机器人</a>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">02</span>
+      <div class="news-title">理想汽车发布具身智能系统 Livis：自研芯片 1280TOPS + VLA 大模型 + 端侧智能体</div>
+      <div class="news-time">2026年6月15日</div>
+      <div class="news-tags">
+        <span class="tag physical">物理 AI</span>
+        <span class="tag edge">端侧 AI</span>
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag embodied">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>理想汽车举办软件与具身智能发布会，将智能汽车重新定义为"具身智能体"。核心发布包括：</p>
+      <ul>
+        <li><strong>马赫 M100 Ultra 自研芯片</strong>：5nm 车规级工艺，单颗算力 1280 TOPS，采用数据流架构，算力利用率超 82%，对标 NVIDIA Thor-U。</li>
+        <li><strong>马赫 VLA 大模型</strong>：将感知、预测、规划统一为原生多模态 MoE 模型，端到端反应时延 0.28 秒（人类平均 0.45 秒），计划 Q4 对齐特斯拉 FSD V14。</li>
+        <li><strong>马赫 Mind-Edge 端侧智能体模型</strong>：从底层面向车载场景设计，支持全天候本地感知与决策，数据不上传。</li>
+        <li>李想提出目标：具身智能汽车的"安全和效率要超越人类"。</li>
+      </ul>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li>这是国内车企首次将"芯片—模型—操作系统—底盘"全栈自研能力公开打通，标志着智能汽车从"功能驱动"向"智能体驱动"的范式跃迁。</li>
+        <li>马赫 M100 的数据流架构是对传统冯·诺依曼架构在 AI 推理场景下的重新设计，对端侧/车侧推理芯片的演进方向有参考价值。</li>
+        <li>VLA（Vision-Language-Action）大模型统一架构代表了物理 AI 领域"感知-决策-执行一体化"的技术趋势，与 NVIDIA GR00T 的思路殊途同归。</li>
+        <li>对上游而言，车规级高算力推理芯片的需求曲线正在陡升；对下游而言，座舱与智驾的 Agent 化将重塑人车交互。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://news.qq.com/rain/a/20260616A0000H00" target="_blank">腾讯新闻：理想把具身智能讲透了！芯片、模型、智驾和座舱全覆盖</a>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">03</span>
+      <div class="news-title">苹果 WWDC2026 加码端侧 AI：AFM3 系列以稀疏架构突破端侧算力瓶颈</div>
+      <div class="news-time">2026年6月9日</div>
+      <div class="news-tags">
+        <span class="tag edge">端侧 AI</span>
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag capital">硅谷动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>苹果在 WWDC2026 上发布端侧大模型 AFM3 系列，主力模型 AFM 3 Core Advanced 参数规模约 200 亿，采用稀疏架构——模型本体做大，但每次推理只激活其中一部分参数，从结构层面为端侧省算力。同时，Siri 迎来 2011 年诞生以来最大规模重构，底层模型可切换至谷歌 Gemini。同期，谷歌 Pixel 10 系列搭载的 Tensor G5 芯片（台积电 3nm）TPU 性能提升 60%，Gemini Nano 常驻端侧。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li>苹果选择"稀疏架构 + 大模型本体"而非简单的模型蒸馏，代表端侧 AI 的技术路线正在分化：苹果走"结构创新"，谷歌走"蒸馏+芯片协同"。</li>
+        <li>端侧 AI 竞争已从"比拼参数规模和压缩比例"转向"模型—芯片—系统—应用"整体协同。谁能打通软硬协同，谁就能把端侧 AI 变成用户可感知的体验。</li>
+        <li>对上游而言，端侧 SoC 的 NPU 设计需要适配稀疏激活等新模型结构；对下游而言，端侧 Agent（如 Siri 重构）将改变手机作为"应用容器"的定位，使其成为"智能协作终端"。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://news.qq.com/rain/a/20260622A08RB300" target="_blank">腾讯新闻：2026"端侧AI战事"升级，苹果谷歌们在拼什么？</a>
+      <a href="https://finance.sina.com.cn/cj/2026-06-13/doc-inicfkww9786531.shtml" target="_blank">新浪财经：端侧AI三强对决：苹果认输、谷歌死磕、中国堆参数</a>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">04</span>
+      <div class="news-title">2026 上半年 460 亿砸向具身智能，马太效应加剧：头部 5 家吞噬 37% 资金</div>
+      <div class="news-time">2026年6月15日 · 钛媒体复盘报告</div>
+      <div class="news-tags">
+        <span class="tag embodied">具身智能</span>
+        <span class="tag capital">资本动态</span>
+        <span class="tag embodied">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>据 IT 桔子数据，2026 年上半年国内具身智能及机器人领域共发生 288 起融资事件，涉及 226 家企业，披露融资额超 460 亿元。但资金分配极度失衡：</p>
+      <ul>
+        <li><strong>塔尖 5 家</strong>（千寻智能、曦望 Sunrise、星海图、自变量机器人、极佳视界）共获约 171 亿，占全行业 37%。</li>
+        <li>千寻智能 4 个月完成 3 轮融资累计 45 亿元；极佳视界三个月内融资 35 亿元。</li>
+        <li>出资方结构发生根本性变化：产业大厂（百度、字节、小米、上汽、汇川）和地方国资/政府引导基金已成为 10 亿级大额融资的主要出资人，传统财务 VC 退化为跟投方。</li>
+        <li>区域格局初步成型：<strong>北京出大脑/本体，广东出零部件，江浙沪跑场景</strong>。</li>
+      </ul>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li>资金高度集中意味着具身智能赛道已进入"圈地催熟"阶段，腰部企业的融资窗口正在收窄，下半年"拿不到 B 轮就出局"将成为现实。</li>
+        <li>产业资本的逻辑不是财务回报，而是生态绑定（百度绑定文心大模型）、供应链话语权（汇川锁定减速器/灵巧手采购权）、运力网络（美团/滴滴投地瓜机器人）。</li>
+        <li>零部件环节（灵巧手、六维力传感器、一体化关节模组）平均单家融资额 3.2 亿，是产业链最高环节，"卖水人"逻辑正在兑现。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://finance.sina.com.cn/cj/2026-06-15/doc-inicnisv8294011.shtml" target="_blank">钛媒体/新浪财经：2026年上半年，460亿砸向具身智能，只"养肥"20家企业？</a>
+      <a href="https://tech.ifeng.com/c/8u8YgJhAvMb" target="_blank">凤凰科技：具身赛道现状素描：脑子灵，模型好，不是百亿，就是独角</a>
+      <a href="https://www.caixin.com/2026-06-15/102454444.html" target="_blank">财新网：极佳视界三个月内融资35亿 世界模型再探具身智能应用落地</a>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">05</span>
+      <div class="news-title">Anthropic 披露"递归自我改进"：AI 正在驱动 AI 研发，效率指数级增长</div>
+      <div class="news-time">2026年6月初</div>
+      <div class="news-tags">
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag capital">硅谷动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>Anthropic 罕见披露内部运营数据，发布关于"递归自我改进"（Recursive Self-Improvement）的重要文章。其核心观点是：AI 参与自身研发的比例正在快速上升，最新模型已被深度嵌入 Anthropic 自身的研发流程，构建了一个研发效率指数级增长的"模型工厂"。闭环框架包括数据获取、数据筛选、模型优化、推理细化与贯穿全程的自动评估。Anthropic 警告：真正的递归自我改进可能在未来两年内发生。同期，田渊栋新公司推出的一套自主 AI 研究循环系统在三个基准测试中刷新最佳成绩，被视为迈向递归自我改进的"第一步"。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li>这是硅谷顶级 AI 实验室首次系统性披露"AI 驱动 AI"的工程化进展，意味着 AI 推理能力的提升正在从"人力驱动"转向"AI 自驱动"，可能压缩模型迭代周期。</li>
+        <li>对推理算力的需求将因此加速增长——递归循环中的每一层自我优化都需要大量推理计算。</li>
+        <li>也引发安全与治理层面的讨论：当 AI 能够自主设计并训练下一代 AI 时，人类对能力曲线的控制力可能下降。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://finance.sina.com.cn/tech/roll/2026-06-11/doc-iniazihq5575222.shtml" target="_blank">新浪财经：Anthropic 宣告「递归自我提升」时代到来</a>
+      <a href="https://zhuanlan.zhihu.com/p/2046673771436696952" target="_blank">知乎：Anthropic 说的「递归自我改进」到底在讲什么</a>
+      <a href="https://eu.36kr.com/zh/p/3849621199442945" target="_blank">36氪：Anthropic 警告递归 AI，田渊栋新公司迈出「第一步」</a>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">06</span>
+      <div class="news-title">五一视界年内拟推动超千台具身智能部署，物理 AI 从实验室走向规模化作业</div>
+      <div class="news-time">2026年6月15日</div>
+      <div class="news-tags">
+        <span class="tag physical">物理 AI</span>
+        <span class="tag embodied">具身智能</span>
+        <span class="tag embodied">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>五一视界披露具身智能业务最新落地进展，宣布年内推动超千台具身智能部署。其旗下 51World Model"物理直觉"世界模型聚焦物理 AI 赛道，为复杂真实环境（工业、能源、矿山、应急等）中的机器人提供决策、规划与作业的底层技术支持。已服务超千家客户，形成多场景布局。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li>"千台级部署"是具身智能从实验室演示走向商业化落地的关键拐点信号——意味着单点技术验证成本已被摊薄到具备经济可行性的水平。</li>
+        <li>世界模型路线（赋予机器"物理直觉"）与传统依赖海量数据喂养的路径不同，更强调机器对物理规律的主动理解能力，这是物理 AI 的核心技术范式之一。</li>
+        <li>对下游应用而言，工业、能源、矿山等非结构化环境是具身智能最具确定性的商业化场景，真实场景的数据反哺将进一步加速模型迭代。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://finance.sina.com.cn/tech/roll/2026-06-15/doc-inicpewp4878659.shtml" target="_blank">新浪科技：五一视界年内拟推动超千台具身智能部署</a>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">07</span>
+      <div class="news-title">面壁智能将端侧模型压缩至 1.58-bit，端侧 AI 进入"芯片级适配"深水区</div>
+      <div class="news-time">2026年6月 · 持续动态</div>
+      <div class="news-tags">
+        <span class="tag edge">端侧 AI</span>
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag embodied">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>端侧大模型公司面壁智能联合清华大学、OpenBMB 开源社区发布 BitCPM-CANN，已在华为昇腾平台上验证 1.58-bit 三值大模型训练方案。面壁智能 CEO 李大海表示，1.58-bit 可能已接近模型量化的理论极限，接下来的关键不是继续压缩 bit 数，而是在极高压缩比下保持模型能力。更重要的是，端侧 AI 的竞争已从"比拼参数和压缩比"转向"模型—芯片—系统—应用"整体协同：面壁已将训练工作逐步迁移到国产芯片和国产集群，并参与智源研究院牵头的 FlagOS 共性软件生态建设。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li>1.58-bit 量化意味着同等能力的大模型可以用更少存储和算力跑在端侧设备上，直接降低端侧 AI 的硬件门槛。</li>
+        <li>训练任务（而非仅推理）向国产芯片迁移是一个重要信号——此前国产芯片主要用于推理，训练迁移对软件栈、集群稳定性、精度一致性要求更高。</li>
+        <li>对上游而言，国产存算一体端侧 AI 芯片即将量产，有望在功耗、算力、带宽上提供更有竞争力的端侧能力；对下游而言，端侧 Agent 的大规模应用前提（芯片能跑 + 模型能做 + 场景成立）正在逐步成熟。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://news.qq.com/rain/a/20260622A08RB300" target="_blank">腾讯新闻：2026"端侧AI战事"升级，苹果谷歌们在拼什么？</a>
+    </div>
+  </div>
+
+  <!-- 08 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">08</span>
+      <div class="news-title">工信部与国资委联合启动具身智能实景实训专项行动，政策驱动万台级落地</div>
+      <div class="news-time">2026年6月上旬</div>
+      <div class="news-tags">
+        <span class="tag embodied">具身智能</span>
+        <span class="tag policy">政策动态</span>
+        <span class="tag embodied">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>工信部与国务院国资委联合启动具身智能实景实训专项行动，要求到 2026 年底在人形机器人等领域形成百个以上高价值应用场景，带动万台级规模落地能力。同期，国家数据局于 6 月 8 日发布《关于推进行业高质量数据集建设行动的实施方案》，为物理 AI 和具身智能的数据供给提供政策支撑。宇树科技 IPO 过会、联想入股；智元机器人落地亿元生态资金。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li>政策端的"百个场景 + 万台级"目标，为具身智能下游应用提供了明确的订单预期和场景开放承诺。</li>
+        <li>数据局的政策补齐了"模型—算力—数据"三角中的数据侧短板，世界模型和 VLA 模型的训练对高质量物理交互数据集有强需求。</li>
+        <li>地方国资正以"资本换落地、落地换订单"模式深度介入（如北京亦庄包揽人形机器人创新中心 7 亿 A 轮、苏州国资托底艾利特 6 亿 D+ 轮），政策资金参与率已超四成。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://www.sohu.com/a/1035105966_350699" target="_blank">搜狐：具身智能周报：宇树IPO过会联想入股，智元落地亿元生态资金</a>
+      <a href="https://www.sohu.com/a/1036676099_122440928" target="_blank">搜狐：数据、模型、资本"三浪叠加"：2026年6月中国AI迎来"质变时刻"</a>
+    </div>
+  </div>
+
+  <!-- Summary Table -->
+  <div class="summary-section">
+    <h2>📊 趋势小结</h2>
+    <table class="summary-table">
+      <thead>
+        <tr><th>维度</th><th>核心趋势</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>物理 AI</td>
+          <td>NVIDIA（平台化）与理想（全栈自研）分别代表两条路径：开放生态 vs 垂直整合；世界模型成为赋予机器"物理直觉"的关键技术范式</td>
+        </tr>
+        <tr>
+          <td>具身智能</td>
+          <td>上半年 460 亿融资完成第一轮圈地，马太效应加剧；政策端"万台级"目标 + 产业资本生态绑定，下半年进入产品交付验证窗口</td>
+        </tr>
+        <tr>
+          <td>端侧 AI</td>
+          <td>苹果稀疏架构、谷歌蒸馏+芯片协同、中国厂商极致量化（1.58-bit）三条路线并行；竞争从"模型压缩"转向"软硬协同"</td>
+        </tr>
+        <tr>
+          <td>AI 推理</td>
+          <td>Anthropic 递归自我改进意味着推理算力需求将指数级增长；车规级推理芯片（理想 M100 1280TOPS）需求曲线陡升</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>本简报基于公开信息整理，仅供参考，不构成投资建议。</p>
+  </div>
+
+</div>
+
+<!-- Back to top -->
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backTop">↑</button>
+
+<script>
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backTop.classList.add('show');
+    else backTop.classList.remove('show');
+  });
+</script>
+
+</body>
+</html>
