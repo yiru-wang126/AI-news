@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>功率半导体 + AI 动态简报 · 2026年6月29日</title>
+<style>
+  :root {
+    --bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --primary: #1d4ed8;
+    --primary-light: #dbeafe;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --tag-sic: #f59e0b;
+    --tag-gan: #10b981;
+    --tag-power: #ef4444;
+    --tag-dc: #8b5cf6;
+    --tag-capital: #3b82f6;
+    --tag-policy: #6366f1;
+    --tag-domestic: #0891b2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    padding: 0 0 60px 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 60%, #f59e0b 100%);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px; }
+  .hero-sub { font-size: 15px; opacity: 0.85; margin-bottom: 16px; }
+  .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: 14px; opacity: 0.9; }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  .news-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-top: 28px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+  .news-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .news-header { padding: 20px 24px 0; }
+  .news-number {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--primary);
+    background: var(--primary-light); padding: 2px 10px; border-radius: 20px; margin-bottom: 8px;
+  }
+  .news-title { font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.5; }
+  .news-time { font-size: 13px; color: var(--text-secondary); margin-top: 6px; }
+  .news-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; color: white; }
+  .tag.sic { background: var(--tag-sic); }
+  .tag.gan { background: var(--tag-gan); }
+  .tag.power { background: var(--tag-power); }
+  .tag.dc { background: var(--tag-dc); }
+  .tag.capital { background: var(--tag-capital); }
+  .tag.policy { background: var(--tag-policy); }
+  .tag.domestic { background: var(--tag-domestic); }
+  .news-body { padding: 16px 24px; }
+  .news-body h3 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; margin-top: 14px; }
+  .news-body h3:first-child { margin-top: 0; }
+  .news-body p, .news-body li { font-size: 14.5px; color: #334155; line-height: 1.8; }
+  .news-body ul { padding-left: 18px; }
+  .news-body li { margin-bottom: 4px; }
+  .news-body strong { color: var(--text); font-weight: 600; }
+  .news-links {
+    background: #f1f5f9; padding: 14px 24px 18px; border-top: 1px solid var(--border);
+  }
+  .news-links h4 {
+    font-size: 12px; font-weight: 700; color: var(--text-secondary);
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+  }
+  .news-links a {
+    display: block; font-size: 13.5px; color: var(--primary); text-decoration: none;
+    padding: 4px 0; line-height: 1.6; border-bottom: 1px dashed transparent; transition: border-color 0.2s;
+  }
+  .news-links a:hover { border-bottom-color: var(--primary); }
+  .news-links a::before { content: "🔗 "; opacity: 0.6; }
+  .highlight-box {
+    background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px;
+    padding: 12px 16px; margin: 12px 0; font-size: 13.5px; color: #92400e; line-height: 1.7;
+  }
+  .highlight-box strong { color: #78350f; }
+  .summary-section {
+    margin-top: 36px; background: var(--card-bg); border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid var(--border); overflow: hidden;
+  }
+  .summary-section h2 { font-size: 18px; font-weight: 700; padding: 20px 24px 12px; color: var(--text); }
+  .summary-table { width: 100%; border-collapse: collapse; }
+  .summary-table th {
+    background: #f1f5f9; font-size: 13px; font-weight: 700; color: var(--text-secondary);
+    text-align: left; padding: 10px 16px;
+  }
+  .summary-table td {
+    font-size: 14px; color: #334155; padding: 12px 16px; border-top: 1px solid var(--border); line-height: 1.7;
+  }
+  .summary-table td:first-child { font-weight: 700; white-space: nowrap; color: var(--primary); }
+  .footer { text-align: center; margin-top: 32px; font-size: 13px; color: var(--text-secondary); }
+  .back-top {
+    position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px;
+    background: var(--primary); color: white; border: none; border-radius: 50%;
+    font-size: 20px; cursor: pointer; box-shadow: 0 2px 8px rgba(29,78,216,0.4);
+    display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;
+  }
+  .back-top.show { opacity: 1; }
+  .back-top:hover { background: #1e40af; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>功率半导体 + AI 动态简报</h1>
+  <div class="hero-sub">SiC · GaN · IGBT · 800V DC · 电源架构 · 国产替代</div>
+  <div class="hero-meta">
+    <span>📅 2026年6月29日</span>
+    <span>🔬 功率半导体 × AI 交叉方向</span>
+    <span>🌏 硅谷 + 欧洲 + 国内</span>
+    <span>🔧 上游零部件 + 下游应用</span>
+    <span>📋 近14天 · 8 条核心动态</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 01 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">01</span>
+      <div class="news-title">AI数据中心引爆功率半导体需求：2030年相关规模达106亿美元，SiC/GaN复合增长率29.5%/46.3%</div>
+      <div class="news-time">2026年6月24日</div>
+      <div class="news-tags">
+        <span class="tag power">行业趋势</span>
+        <span class="tag sic">SiC</span>
+        <span class="tag gan">GaN</span>
+        <span class="tag dc">AI数据中心</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>多家机构研报密集发布，确认AI数据中心正成为功率半导体新一轮增长核心驱动力。美银预测全球功率半导体市场规模将从2025年289亿美元增至2030年433亿美元，其中AI数据中心相关规模将达到106亿美元（占比近25%）。SiC在数据中心CAGR高达29.5%，GaN达46.3%。更细颗粒度数据：AI模拟半导体从2025年79亿美元增至2030年270亿美元（CAGR 28%），数据中心内部（rack-to-core）从76亿涨到250亿，电力基础设施（grid-to-hall）从2.45亿飙到18亿。单机架模拟芯片含量将从2万多美元涨到6万美元以上。</p>
+      <div class="highlight-box">
+        <strong>核心数据</strong>：机架功率从传统10~15kW → H100 32kW → GB200 121kW → Rubin Ultra 646kW → Feynman（RF200）预计1535kW。GPU功耗占比从71%涨到80%以上。2025~2030年AI加速器累计需新增233GW电力部署。
+      </div>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>需求范式转换</strong>：功率半导体增长引擎从"新能源汽车单驱动"切换为"新能源汽车+AI数据中心双驱动"，行业增长天花板被大幅抬升。</li>
+        <li><strong>量价齐升逻辑</strong>：单机架功率半导体价值量提升8~18倍，且800V架构下每GW数据中心对应价值量从8000万美元→1.8亿美元，量价双升。</li>
+        <li><strong>对上游</strong>：SiC/GaN产能需求急剧扩大；<strong>对下游</strong>：供电效率提升直接降低数据中心运营成本（每提升1%效率=巨额电费节省）。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://news.qq.com/rain/a/20260624A02A7N00" target="_blank">腾讯新闻/电子工程世界：AI数据中心爆发，功率半导体大涨</a>
+      <a href="https://www.msn.cn/zh-cn/news/other/800v革命来了" target="_blank">MSN/摩根大通：800V革命来了！AI算力爆炸重塑电力芯片格局</a>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">02</span>
+      <div class="news-title">PCIM 2026 定调：数据中心电源架构成为AI时代最紧迫的半导体挑战</div>
+      <div class="news-time">2026年6月10~12日（纽伦堡展会）/ 6月22日（TechInsights深度报告）</div>
+      <div class="news-tags">
+        <span class="tag dc">800V DC</span>
+        <span class="tag power">行业趋势</span>
+        <span class="tag capital">硅谷/欧洲</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>PCIM 2026（纽伦堡）确认了一个重大行业转向：数据中心电源架构已成为AI时代半导体产业最紧迫的挑战。展会首次增设"AI & Data Centers Stage"，英飞凌、安森美、Navitas、意法半导体、TI、Power Integrations等巨头全面展示从800VDC/HVDC配电、SST、IBC到GaN高密度电源、SiC高压前级直至处理器核心供电的全链路方案。TechInsights深度报告指出：800V DC配电已成为新优先级，固态变压器（SST）开始从概念验证走向实际样机，GaN和SiC"不是互相替代而是共同增长"——GaN在高密度电源转换快速扩张，SiC锚定基础设施级电力输送。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>行业共识确认</strong>：PCIM是全球功率半导体风向标，首次为AI数据中心增设专题舞台，标志着功率半导体行业焦点正式从"汽车周期"转向"AI电源架构周期"。</li>
+        <li><strong>竞争范式变化</strong>：厂商关注点从单器件参数（RDS(on)、Eon/Eoff）转向系统级效率、功率密度与可靠性，"Grid to Core/Gate"全链路方案成为竞争焦点。</li>
+        <li><strong>SiC JFET回归</strong>：英飞凌和安森美同时押注SiC JFET用于固态断路器/Hot-Swap，传统机电断路器毫秒级响应已不能满足800V DC故障保护需求。</li>
+        <li><strong>GaN向高压扩展</strong>：Fraunhofer展示1200V级GaN，Power Integrations推出1700V PowiGaN器件，GaN不再局限于650V以下。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://www.techinsights.com/blog/pcim-2026-confirms-datacenter-power-semiconductor-industrys-most-pressing-challenge" target="_blank">TechInsights：PCIM 2026 Confirms Datacenter Power as Semiconductor Industry's Most Pressing Challenge</a>
+      <a href="https://news.qq.com/rain/a/20260624A02A7N00" target="_blank">电子工程世界：PCIM 2026功率半导体正在从"器件周期"走向"电源架构周期"</a>
+      <a href="https://www.eet-china.com/mp/a503429.html" target="_blank">EET China：SiC和GaN在2026——如何重新定义AI数据中心与800V电动汽车</a>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">03</span>
+      <div class="news-title">英飞凌/意法/安森美密集涨价，AI数据中心供给短缺列为涨价主因之一</div>
+      <div class="news-time">2026年6月（7月1日起执行）</div>
+      <div class="news-tags">
+        <span class="tag power">上游零部件</span>
+        <span class="tag capital">硅谷/国际</span>
+        <span class="tag domestic">供给紧张</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>功率半导体国际头部厂商密集发布涨价函：<strong>英飞凌</strong>宣布7月1日起上调多种功率开关器件价格，涨幅5%~15%，涨价函中明确将"AI数据中心部署导致功率开关及相关IC供应短缺"列为涨价原因之一；<strong>意法半导体</strong>年内两度涨价（3月24日+5月28日），6月28日起上调MCU及功率产品价格；<strong>安森美</strong>4月涨价；<strong>德州仪器</strong>也提及涨价意向。海外头部厂商订单交期长达半年至一年。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>AI需求传导至上游</strong>：英飞凌涨价函首次明确将AI数据中心列为涨价原因，标志AI算力需求已实质性传导至功率半导体上游供给端。</li>
+        <li><strong>涨价周期确认</strong>：海内外厂商年内普遍两轮涨价，国内厂商分2~3批次阶梯调价，充分验证行业上游供给紧缺、下游需求高景气。</li>
+        <li><strong>国产替代窗口</strong>：海外大厂交期拉长+涨价，为国产功率半导体厂商提供了量价齐升的国产替代加速窗口。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://baijiahao.baidu.com/s?id=1868578115925807442" target="_blank">百度百家号：比肩存储，韩国盯上功率半导体（含英飞凌涨价函内容）</a>
+      <a href="https://xueqiu.com/5027901121/396264875" target="_blank">雪球：功率半导体涨价周期全面开启，赛道量价齐升逻辑梳理</a>
+      <a href="https://www.dramx.com/News/igbt/20260624-40664.html" target="_blank">全球半导体观察：意法半导体年内二度上调MCU产品价格</a>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">04</span>
+      <div class="news-title">Wolfspeed 发布第五代 SiC MOSFET，18个月两代迭代，卡位新能源+AI双赛道</div>
+      <div class="news-time">2026年6月11日（发布会）/ 6月15日（盘前大涨近13%）</div>
+      <div class="news-tags">
+        <span class="tag sic">SiC</span>
+        <span class="tag capital">硅谷动态</span>
+        <span class="tag power">上游零部件</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>Wolfspeed正式推出第五代（Gen 5）碳化硅MOSFET技术，距Gen 4落地仅18个月。核心技术突破：1200V Gen 5在175℃下芯片级比导通电阻（Rsp）低至3.4 mΩ·cm²，较业界最优水平降低27%，较自家Gen 4降低41%；750V Gen 5 Rsp低至2.0 mΩ·cm²。支持200℃长期运行、215℃短期运行，高温下导通电阻变化平缓。Wolfspeed已完成70%债务化解，手持约12亿美元现金，经营全面企稳。全球首条8英寸SiC量产线产能储备充足，可同时支撑汽车+AI+工业三赛道。</p>
+      <div class="highlight-box">
+        <strong>关键数据</strong>：以400kW逆变器为例，Gen 4需10颗芯片 → Gen 5仅需6颗，芯片数量减少40%，直接降低BOM成本。
+      </div>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>迭代速度跃升</strong>：18个月完成两代技术迭代，SiC技术更新节奏首次匹配下游应用（新能源汽车+AI数据中心）的快速迭代周期。</li>
+        <li><strong>AI第二增长曲线</strong>：Wolfspeed明确将AI数据中心定位为SiC的"第二增长曲线"，800V高压供电架构下SiC MOSFET需求快速增长。</li>
+        <li><strong>产能优势反转</strong>：此前超前布局8英寸产能被视为财务包袱，如今AI需求爆发使8英寸产能储备成为核心竞争优势。</li>
+        <li><strong>对上游</strong>：SiC器件成本下探推动更大范围替代硅基器件；<strong>对下游</strong>：Gen 5芯片数量减少40%直接降低车规和数据中心电源的BOM成本。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://finance.sina.com.cn/tech/roll/2026-06-17/doc-inicthnp7019755.shtml" target="_blank">新浪科技：走出泥潭迭代提速——Wolfspeed发布第五代碳化硅MOSFET</a>
+      <a href="https://finance.sina.com.cn/stock/bxjj/2026-06-15/doc-inicnuhr8216266.shtml" target="_blank">新浪财经：Wolfspeed盘前大涨近13%，第五代SiC MOSFET引爆市场</a>
+      <a href="https://www.21ic.com/a/1006528.html" target="_blank">21ic：第五代SiC技术突围，Wolfspeed迈上新征程</a>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">05</span>
+      <div class="news-title">韩国投入5000亿韩元攻关下一代功率半导体，定位"比肩存储芯片"的国家级战略产业</div>
+      <div class="news-time">2026年6月14日</div>
+      <div class="news-tags">
+        <span class="tag policy">政策动态</span>
+        <span class="tag sic">SiC</span>
+        <span class="tag gan">GaN</span>
+        <span class="tag capital">国际动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>韩国副总理具允哲在紧急经济指挥部会议上正式敲定"超级创新经济项目"细则：国家出资5000亿韩元（约22.3亿元人民币/3.29亿美元），叠加民间配套后总规模达7500亿韩元（约4.94亿美元），专项攻关SiC和GaN下一代功率半导体。官方定性功率半导体为"继存储芯片之后第二大支柱半导体产业"，列为三大经济增长引擎之首。核心目标：2027年量产1.2kV级SiC MOSFET，2030年功率半导体技术自主率从当前10%提升至20%，降低车规和服务器高压器件进口依赖。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>全球政策竞赛升级</strong>：韩国将功率半导体从"一般产业"升级为"比肩存储的战略产业"，标志着全球功率半导体政策竞赛从中日韩扩展至韩国正式入局。</li>
+        <li><strong>复刻存储路径</strong>：韩国举国豪赌功率半导体，本质是复刻DRAM/HBM存储产业的全产业链突围路径——政府出资+民间配套+技术自主率目标+时间表绑定。</li>
+        <li><strong>对中国的影响</strong>：韩国入场将加剧SiC/GaN全球产能竞争，国产替代的时间窗口正在收窄，但也验证了功率半导体的战略价值已被全球主要经济体共识。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://baijiahao.baidu.com/s?id=1868128716599853437" target="_blank">百度百家号：韩国计划投入5000亿韩元攻关下一代功率半导体</a>
+      <a href="https://baijiahao.baidu.com/s?id=1868576082245146934" target="_blank">百度百家号：比肩存储，韩国盯上功率半导体</a>
+      <a href="https://caifuhao.eastmoney.com/news/20260627090640335722460" target="_blank">东方财富：韩国功率半导体新政摘要</a>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">06</span>
+      <div class="news-title">国内功率半导体涨价周期全面开启：6家厂商年内两轮调价，宏微科技涨停</div>
+      <div class="news-time">2026年6月23~29日</div>
+      <div class="news-tags">
+        <span class="tag domestic">国内动态</span>
+        <span class="tag power">上游零部件</span>
+        <span class="tag sic">SiC/IGBT</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>国内功率半导体厂商年内普遍两轮涨价：<strong>华润微</strong>2月率先启动全系列产品涨价（涨幅10%起）；<strong>士兰微、新洁能、捷捷微电</strong>3月同步调价；<strong>宏微科技</strong>4月初首次提价后启动第二轮涨价（7月1日起IGBT单管/模块、整流桥、MOSFET全品类）；<strong>扬杰科技</strong>6月17日公告7月1日全系列产品涨价10%~15%；<strong>立昂微</strong>6月再度上调报价。6月29日宏微科技涨停（+19.99%），市值突破100亿元，催化因素包括SiC产品+业绩扭亏+HVDC 800V订单放量。<strong>士兰微</strong>第二代SiC MOSFET已通过国内头部客户认证，在AI算力中心电源领域实现批量出货。<strong>新洁能</strong>GPU板卡48V转12V屏蔽栅MOS进入第三轮验证，间接供货英伟达、谷歌。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>量价齐升周期确认</strong>：6家厂商年内两轮调价+海外大厂交期拉长，充分验证功率半导体进入量价齐升上行周期。</li>
+        <li><strong>AI订单驱动</strong>：宏微科技HVDC 800V模块完成三轮验证，小批量订单落地，26Q3签长期供货协议；士兰微SiC MOSFET在AI算力中心批量出货——国产功率半导体正实质性切入AI数据中心供应链。</li>
+        <li><strong>国产替代加速</strong>：海外涨价+交期拉长为国产厂商提供加速替代窗口，AI数据中心订单成为国产替代的核心验证场景。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://xueqiu.com/5027901121/396264875" target="_blank">雪球：功率半导体涨价周期全面开启，赛道量价齐升逻辑梳理</a>
+      <a href="https://baijiahao.baidu.com/s?id=1869298335370217120" target="_blank">百度百家号：缺货+涨价！AI等需求带动功率半导体景气回升</a>
+      <a href="https://finance.sina.cn/2026-06-28/detail-iniexipy4112491.d.html" target="_blank">新浪财经：扬杰科技、宏微科技年内第二轮调价</a>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">07</span>
+      <div class="news-title">国产SiC/GaN厂商加速切入AI数据中心供应链：英诺赛科入列英伟达800V HVDC、三安/芯联集成AI业务占比攀升</div>
+      <div class="news-time">2026年6月（持续进展）</div>
+      <div class="news-tags">
+        <span class="tag gan">GaN</span>
+        <span class="tag sic">SiC</span>
+        <span class="tag domestic">国内动态</span>
+        <span class="tag dc">下游应用</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>国产功率半导体厂商正加速切入AI基础设施赛道：<strong>英诺赛科</strong>2025年AI及数据中心业务收入达6319万元（同比+50.2%），已进入包括英伟达在内的多家国内外头部客户800V HVDC方案供应链；<strong>芯联集成</strong>AI业务占比提升至8.02%，预计2026年进一步贡献业绩增量；<strong>三安半导体</strong>在数据中心和AI服务器电源市场实现规模量产，客户覆盖长城、维谛技术、伟创力、台达、光宝等，积极参与HVDC高压直流电源方案开发；<strong>士兰微</strong>第二代SiC MOSFET通过头部客户认证并在AI算力中心电源批量出货；<strong>扬杰科技</strong>整流器件、MOSFET、IGBT及SiC广泛应用于AI服务器和数据中心；<strong>华润微</strong>SGT MOS、SJ MOS、SiC、GaN及IGBT稳定导入头部云厂商、服务器OEM及电源厂商。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>英伟达供应链突破</strong>：英诺赛科进入英伟达800V HVDC方案供应链，是国产GaN厂商切入全球AI基础设施核心供应链的标志性事件。</li>
+        <li><strong>从验证到量产</strong>：多家国产厂商已从"送样验证"阶段进入"批量出货"阶段，国产功率半导体在AI数据中心的应用正从概念走向实际营收贡献。</li>
+        <li><strong>品类全覆盖</strong>：从GaN（英诺赛科）、SiC MOSFET（士兰微/三安）、IGBT（宏微科技）到DrMOS（杰华特/圣邦微/芯朋微），国产厂商在AI数据中心各功率层级均有布局。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://news.qq.com/rain/a/20260624A02A7N00" target="_blank">电子工程世界：AI数据中心爆发——国内功率半导体厂商加速切入AI基础设施赛道</a>
+      <a href="https://baijiahao.baidu.com/s?id=1868887301992827141" target="_blank">百度百家号：功率半导体2026年景气拐点已至，8家核心公司硬核拆解</a>
+    </div>
+  </div>
+
+  <!-- 08 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">08</span>
+      <div class="news-title">800V HVDC供电架构+垂直供电（VPD）成为AI数据中心新范式，英伟达MGX模块化架构重塑功率半导体需求结构</div>
+      <div class="news-time">2026年6月（PCIM 2026共识）</div>
+      <div class="news-tags">
+        <span class="tag dc">800V DC</span>
+        <span class="tag power">下游应用</span>
+        <span class="tag capital">硅谷动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>PCIM 2026确认800V HVDC供电架构正在重塑AI数据中心的功率半导体需求结构。供电路径正在发生根本变革：<strong>传统路径</strong> Grid AC → Transformer → UPS → PDU → PSU → 48V → VRM → GPU；<strong>新路径</strong> Grid/MVAC → SST → 800VDC Bus → Rack DC-DC → 50V/48V → VRM → GPU。英伟达牵头800V HVDC架构，一周内多家hyperscaler宣布对齐。SST（固态变压器）和SSCB（固态断路器）成为两个新增长点，美银预计到2030年SST约5亿美元、SSCB约4亿美元。英伟达确认Rubin将采用<strong>垂直供电（VPD）</strong>方案，通过穿透PCB层垂直向上输送电力，缩短VRM到SoC的电力传输距离。VPD分三阶段演进：离散/横向供电 → 背面垂直供电（BVM） → 基板集成电压调节器（SIVR）。英伟达MGX模块化架构正在成为功率半导体厂商另一个核心关注点。</p>
+      <div class="highlight-box">
+        <strong>需求结构重塑</strong>：数据中心输入侧→SiC模块+隔离驱动+保护器件；机架侧→高压开关+热插拔+保护IC；板级转换→GaN+磁性器件+控制IC（800V→50V/12V/6V）；近负载供电→DrMOS+Power Stage+封装散热材料。
+      </div>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>架构级变革</strong>：800V HVDC不是渐进改良而是架构级革命，功率半导体需求从"单一器件选型"转变为"全链路方案竞争"，品类结构完全重塑。</li>
+        <li><strong>SST/SSCB新品类</strong>：固态变压器和固态断路器是全新创造的功率半导体品类，SST从概念验证走向实际样机，产业化拐点临近。</li>
+        <li><strong>VPD垂直供电</strong>：英伟达确认Rubin采用VPD，推动封装散热材料、DrMOS、Power Stage等近负载层器件的技术升级和需求增长。</li>
+        <li><strong>对上游</strong>：SiC/GaN/Si MOSFET各有明确分工定位（SiC前端高压、GaN板级高频DC-DC、Si MOSFET近负载），品类竞争变为协作；<strong>对下游</strong>：供电效率提升直接决定AI数据中心TCO。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://www.techinsights.com/blog/pcim-2026-confirms-datacenter-power-semiconductor-industrys-most-pressing-challenge" target="_blank">TechInsights：PCIM 2026 Confirms Datacenter Power Challenge</a>
+      <a href="https://www.eet-china.com/mp/a504642.html" target="_blank">EET China：Navitas兆瓦级AI数据中心供电架构——800V进tray后GaN和SiC的分工</a>
+      <a href="https://www.sohu.com/a/1038612451_121124371" target="_blank">搜狐：美国AI数据中心为什么不会马上全面进入Native 800VDC？Sidecar的中期方案</a>
+      <a href="https://news.qq.com/rain/a/20260624A02A7N00" target="_blank">电子工程世界：AI数据中心供电的六大变革</a>
+    </div>
+  </div>
+
+  <!-- Summary Table -->
+  <div class="summary-section">
+    <h2>📊 趋势小结</h2>
+    <table class="summary-table">
+      <thead>
+        <tr><th>维度</th><th>核心趋势</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>需求引擎</td>
+          <td>功率半导体增长从"新能源汽车单驱动"切换为"新能源+AI数据中心双驱动"，AI数据中心相关规模2030年达106亿美元（占比近25%）</td>
+        </tr>
+        <tr>
+          <td>架构变革</td>
+          <td>800V HVDC供电架构+垂直供电（VPD）+SST/SSCB正在从概念走向产业化，功率半导体需求结构从"单一器件选型"转变为"全链路方案竞争"</td>
+        </tr>
+        <tr>
+          <td>涨价周期</td>
+          <td>海内外厂商年内普遍两轮涨价，英飞凌涨价函首次将AI数据中心供给短缺列为主因——AI需求已实质性传导至上游供给端</td>
+        </tr>
+        <tr>
+          <td>SiC</td>
+          <td>Wolfspeed Gen 5 18个月迭代、Rsp降低41%、芯片数量减少40%——SiC从"高端尝鲜"走向"大规模普及"，AI数据中心成为第二增长曲线</td>
+        </tr>
+        <tr>
+          <td>GaN</td>
+          <td>GaN向1200V/1700V高压扩展、不再局限于650V——与SiC不是替代关系而是分工协作，GaN负责高频高密度DC-DC，SiC锚定基础设施级电力输送</td>
+        </tr>
+        <tr>
+          <td>国产替代</td>
+          <td>英诺赛科入列英伟达800V HVDC供应链、士兰微SiC MOSFET在AI算力中心批量出货——国产功率半导体正从"送样验证"进入"批量出货+营收贡献"阶段</td>
+        </tr>
+        <tr>
+          <td>政策竞赛</td>
+          <td>韩国5000亿韩元将功率半导体定位为"比肩存储的战略产业"——全球功率半导体政策竞赛从中日扩展至韩国正式入局，国产替代时间窗口正在收窄</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <p>本简报基于公开信息整理，仅供参考，不构成投资建议。</p>
+  </div>
+
+</div>
+
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backTop">↑</button>
+
+<script>
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backTop.classList.add('show');
+    else backTop.classList.remove('show');
+  });
+</script>
+
+</body>
+</html>
