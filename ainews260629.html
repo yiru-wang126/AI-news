@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域动态简报 · 2026年6月29日</title>
+<style>
+  :root {
+    --bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --primary: #2563eb;
+    --primary-light: #dbeafe;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --tag-physical: #f59e0b;
+    --tag-embodied: #8b5cf6;
+    --tag-edge: #10b981;
+    --tag-reasoning: #ef4444;
+    --tag-capital: #3b82f6;
+    --tag-policy: #6366f1;
+    --tag-pharma: #ec4899;
+    --tag-compute: #0891b2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    padding: 0 0 60px 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; letter-spacing: 0.5px; }
+  .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: 14px; opacity: 0.9; }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  .news-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-top: 28px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+  .news-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .news-header { padding: 20px 24px 0; }
+  .news-number {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--primary);
+    background: var(--primary-light); padding: 2px 10px; border-radius: 20px; margin-bottom: 8px;
+  }
+  .news-title { font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.5; }
+  .news-time { font-size: 13px; color: var(--text-secondary); margin-top: 6px; }
+  .news-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; color: white; }
+  .tag.physical { background: var(--tag-physical); }
+  .tag.embodied { background: var(--tag-embodied); }
+  .tag.edge { background: var(--tag-edge); }
+  .tag.reasoning { background: var(--tag-reasoning); }
+  .tag.capital { background: var(--tag-capital); }
+  .tag.policy { background: var(--tag-policy); }
+  .tag.pharma { background: var(--tag-pharma); }
+  .tag.compute { background: var(--tag-compute); }
+  .news-body { padding: 16px 24px; }
+  .news-body h3 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; margin-top: 14px; }
+  .news-body h3:first-child { margin-top: 0; }
+  .news-body p, .news-body li { font-size: 14.5px; color: #334155; line-height: 1.8; }
+  .news-body ul { padding-left: 18px; }
+  .news-body li { margin-bottom: 4px; }
+  .news-body strong { color: var(--text); font-weight: 600; }
+  .news-links {
+    background: #f1f5f9; padding: 14px 24px 18px; border-top: 1px solid var(--border);
+  }
+  .news-links h4 {
+    font-size: 12px; font-weight: 700; color: var(--text-secondary);
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+  }
+  .news-links a {
+    display: block; font-size: 13.5px; color: var(--primary); text-decoration: none;
+    padding: 4px 0; line-height: 1.6; border-bottom: 1px dashed transparent; transition: border-color 0.2s;
+  }
+  .news-links a:hover { border-bottom-color: var(--primary); }
+  .news-links a::before { content: "🔗 "; opacity: 0.6; }
+  .summary-section {
+    margin-top: 36px; background: var(--card-bg); border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid var(--border); overflow: hidden;
+  }
+  .summary-section h2 { font-size: 18px; font-weight: 700; padding: 20px 24px 12px; color: var(--text); }
+  .summary-table { width: 100%; border-collapse: collapse; }
+  .summary-table th {
+    background: #f1f5f9; font-size: 13px; font-weight: 700; color: var(--text-secondary);
+    text-align: left; padding: 10px 16px;
+  }
+  .summary-table td {
+    font-size: 14px; color: #334155; padding: 12px 16px; border-top: 1px solid var(--border); line-height: 1.7;
+  }
+  .summary-table td:first-child { font-weight: 700; white-space: nowrap; color: var(--primary); }
+  .footer { text-align: center; margin-top: 32px; font-size: 13px; color: var(--text-secondary); }
+  .back-top {
+    position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px;
+    background: var(--primary); color: white; border: none; border-radius: 50%;
+    font-size: 20px; cursor: pointer; box-shadow: 0 2px 8px rgba(37,99,235,0.4);
+    display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;
+  }
+  .back-top.show { opacity: 1; }
+  .back-top:hover { background: #1d4ed8; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>AI 领域动态简报</h1>
+  <div class="hero-meta">
+    <span>📅 2026年6月29日</span>
+    <span>🔬 AI 推理 · 物理 AI · 端侧 AI · 具身智能</span>
+    <span>🌏 硅谷 + 国内</span>
+    <span>🔧 上游零部件 + 下游应用</span>
+    <span>📋 近7天（6.22 - 6.29）· 11 条动态</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 01 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">01</span>
+      <div class="news-title">OpenAI 发布首款自研 AI 推理芯片 Jalapeño，9个月流片刷新行业纪录</div>
+      <div class="news-time">2026年6月25日</div>
+      <div class="news-tags">
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag capital">硅谷动态</span>
+        <span class="tag capital">上游芯片</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>OpenAI 联合博通（Broadcom）正式发布首款自研 AI 推理芯片 Jalapeño（哈拉贝诺），专为 GPT 工作负载优化。从设计到流片仅用 9 个月，自称"高性能先进半导体领域有史以来最快的 ASIC 开发周期"，开发过程中 ChatGPT 辅助了芯片设计验证。芯片专注推理而非训练，早期测试显示每瓦性能明显优于当前最先进同类产品，博通 CEO 称其性能可媲美英伟达 Blackwell 及谷歌 TPU。计划 2026 年底规模化部署，定位为"多代计算平台的第一步"。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>战略转折</strong>：标志 OpenAI 从纯软件模型厂商正式向"模型+芯片"全栈方向转型，降低对英伟达 GPU 的依赖。</li>
+        <li><strong>推理成本拐点</strong>：推理是每天数亿用户持续产生的成本大头，若推理成本压降三到五成，在 OpenAI 规模下节省的是天文数字的利润空间。</li>
+        <li><strong>行业趋势</strong>：谷歌 TPU、亚马逊 Trainium、微软/Meta 自研芯片之后，OpenAI 入局意味着头部大模型厂商"去英伟达化"已成行业共识，AI 竞争维度从模型层下沉至硬件层。</li>
+        <li><strong>对上游</strong>：AI 推理芯片多元化将改变算力供给格局；<strong>对下游</strong>：推理成本下降将加速 Agent 和端侧应用的大规模普及。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://www.weste.net/2026/06-25/OpenAI-Jalapeno.html" target="_blank">威易网：OpenAI 发布首款自研 AI 芯片 Jalapeño，联手博通九个月完成流片</a>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">02</span>
+      <div class="news-title">GPT-5.6 正式发布但遭美国政府监管限发，前沿模型进入"事前审批"时代</div>
+      <div class="news-time">2026年6月26日</div>
+      <div class="news-tags">
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag capital">硅谷动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>OpenAI 正式发布 GPT-5.6 系列模型，分为旗舰 Sol、均衡 Terra、轻量 Luna 三档，标配 150 万 Token 上下文，在代码生成、科学推理等基准测试中表现领先。但受美国政府网络安全监管要求约束，模型仅向美国本土约 20 家经审批的可信合作伙伴开放，普通用户与海外开发者暂无法申请内测。同期，美国政府也对 Anthropic 新模型 Mythos 5 实施了类似的分阶段发布要求。这是美国监管机构首次对顶级商业大模型发布节奏实施实质性干预。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>监管范式转变</strong>：标志着美国 AI 监管从事后问责正式进入事前审批时代，前沿 AI 模型被纳入战略资产管控范畴。</li>
+        <li><strong>竞争格局影响</strong>：前沿模型发布受限意味着 OpenAI/Anthropic 的技术迭代节奏将受政策制约，为中国大模型厂商提供了追赶窗口期。</li>
+        <li><strong>推理能力跃升</strong>：GPT-5.6 在科学推理和代码生成方面的突破，将进一步拉高下游应用的能力天花板。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://deepseek.csdn.net/6a40f9b710ee7a33f2836912.html" target="_blank">CSDN：AI 一周大事盘点（2026年6月21日-27日）</a>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">03</span>
+      <div class="news-title">DeepSeek 联合北大开源 DSpark 推理加速框架，大模型生成速度提升最高 85%</div>
+      <div class="news-time">2026年6月27日</div>
+      <div class="news-tags">
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag embodied">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>DeepSeek 联合北京大学发布并开源 DSpark 推测解码框架，在不降低生成质量的前提下，使 DeepSeek-V4-Flash 单用户生成速度提升 60%-85%，V4-Pro 提升 57%-78%。框架通过半自回归草稿和动态调度替换 MTP-1 方案，兼容国内外主流基座模型，代码与权重全部开源且商用免费。同期，DeepSeek 发布招聘计划将所有部门规模扩大至少一倍，重点招募 Agent 相关岗位，510 亿元融资落地。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>推理效率突破</strong>：通用型推理加速方案开源将显著降低中小团队的大模型部署成本，推动全行业推理效率整体提升。</li>
+        <li><strong>工程化竞争</strong>：大模型竞争下半场从"参数规模"转向"工程优化"，推理效率成为核心竞争指标。</li>
+        <li><strong>开源生态</strong>：DeepSeek 持续开源策略正在构建国内大模型生态的技术外溢效应，惠及全行业。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://www.liangwei.cc/ai-daily/ai-daily-2026-06-27.html" target="_blank">梁伟的无聊日志：DeepSeek V4 新成果 DSpark 发布</a>
+      <a href="https://deepseek.csdn.net/6a40f9b710ee7a33f2836912.html" target="_blank">CSDN：AI 一周大事盘点（6.21-6.27）</a>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">04</span>
+      <div class="news-title">Om AI 发布全球首个端侧流式多模态模型 VLX，打通"感知→定位→行动"闭环</div>
+      <div class="news-time">2026年6月27日</div>
+      <div class="news-tags">
+        <span class="tag edge">端侧 AI</span>
+        <span class="tag physical">物理 AI</span>
+        <span class="tag embodied">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>杭州 AI 公司 Om AI 发布全球首个面向物理世界的端侧流式多模态模型系列 VLX，包含三款模型：<strong>VLX-Flow</strong>（实时流式感知，处理单路视频最快 0.06 秒）、<strong>VLX-Seek</strong>（精准定位，3B 级模型达到更大模型检测效果）、<strong>VLX-Go</strong>（行动决策，仅 0.6B 参数完成实时运动规划）。三款模型共享同一基座，在同一视频流上完成端到端协作。VLX 从 Day 1 按端侧算力约束重新设计整个系统，而非将云端模型压缩到端侧，可跑进手机、无人机、机器人等设备。团队此前推出的 VLM-R1 曾 48 小时登顶 GitHub 全球趋势榜。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>技术路线创新</strong>：不是把云端模型做小，而是从 Day 1 为端侧重新设计，代表了端侧 AI 从"压缩部署"到"原生设计"的范式转变。</li>
+        <li><strong>物理 AI 闭环</strong>：首次将持续感知、精准定位、行动决策做成一套能长期连续运转的端侧系统，填补了物理世界 AI 的关键缺失环节。</li>
+        <li><strong>对上游</strong>：端侧原生多模态模型对 NPU 架构提出新需求；<strong>对下游</strong>：机器人、无人机、摄像头等设备可获得低延迟、低功耗的实时 AI 能力，无需依赖云端。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://www.qbitai.com/2026/06/439236.html" target="_blank">量子位：CVPR 2026最热方向，被一家杭州团队率先跑进了端侧！</a>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">05</span>
+      <div class="news-title">广和通实现 VLA 端侧推理 2.6 倍加速，完成 GR00T N1.5 边缘侧部署</div>
+      <div class="news-time">2026年6月29日</div>
+      <div class="news-tags">
+        <span class="tag edge">端侧 AI</span>
+        <span class="tag embodied">具身智能</span>
+        <span class="tag embodied">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>广和通 AI 研究院在具身智能领域取得关键进展：基于自研 FiboVLA 框架与端侧推理优化技术，团队在多个主流 VLA（Vision-Language-Action）模型上实现平均 2.6 倍推理加速，并完成 NVIDIA GR00T N1.5 在边缘侧高算力主控平台的部署。相关成果已通过 LIBERO 仿真基准数据集与桌面双臂真机环境验证，为具身智能模型在机器人端侧高效运行提供工程支撑。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>VLA 端侧化</strong>：VLA 大模型是物理 AI 的核心"大脑"，但其推理计算量大、延迟高，端侧部署是落地瓶颈。2.6 倍加速意味着 VLA 模型从云端走向机器人端侧的工程可行性大大提升。</li>
+        <li><strong>NVIDIA 生态协同</strong>：完成 GR00T N1.5 边缘侧部署说明国产厂商正在深度适配 NVIDIA 机器人 AI 平台，上游芯片与下游应用之间的工程衔接正在打通。</li>
+        <li><strong>对上游</strong>：边缘侧高算力主控平台的需求明确化；<strong>对下游</strong>：机器人端侧实时决策能力提升，推动工业、服务场景商业化落地。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://finance.sina.com.cn/jjxw/2026-06-29/doc-iniezxay2287939.shtml" target="_blank">新浪财经：广和通实现VLA端侧推理2.6倍加速</a>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">06</span>
+      <div class="news-title">智元旗下灵巧手公司"临界点"5个月估值破 10 亿美元，首季即盈利</div>
+      <div class="news-time">2026年6月24日</div>
+      <div class="news-tags">
+        <span class="tag embodied">具身智能</span>
+        <span class="tag capital">资本动态</span>
+        <span class="tag embodied">上游零部件</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>具身智能灵巧手赛道企业"临界点"（AGILINK）完成新一轮融资，投后估值突破 10 亿美元，从成立到独角兽仅用 5 个月，完成 4 轮融资，创下灵巧手赛道最快速度。本轮由未来资产、头部互联网大厂、京铭资本联合领投，东风资产、国信中数、上海电科基金等产业机构参与。临界点脱胎于智元机器人体系，在灵巧手领域具备技术积累和工程制造经验，成立仅 5 个月即实现首季度盈利。全产品线均已实现商业订单，累计签约金额达数千万元。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>上游零部件价值确认</strong>：灵巧手是具身智能产业链中技术壁垒最高、价值量最大的零部件之一，10 亿美元估值确认了"卖水人"环节的独立商业价值。</li>
+        <li><strong>盈利速度罕见</strong>：5 个月首季盈利在硬件创业领域极为罕见，说明灵巧手已跨过"有人买单"的商业化临界点，下游需求真实且迫切。</li>
+        <li><strong>产业分拆趋势</strong>：智元将灵巧手业务独立分拆并快速做大，预示具身智能头部企业正通过生态孵化进行纵向供应链整合。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://www.shobserver.com/news/detail?id=1134468" target="_blank">上观新闻：智元系再添独角兽，灵巧手公司"临界点"估值突破10亿美元</a>
+      <a href="http://finance.sina.com.cn/stock/estate/integration/2026-06-26/doc-iniesvke2015988.shtml" target="_blank">新浪财经：灵巧手企业临界点完成近10亿元融资 估值达10亿美元</a>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">07</span>
+      <div class="news-title">深度机智两月连获两轮数亿元融资，"人类学习"路线加速国产物理 AI 基座落地</div>
+      <div class="news-time">2026年6月26日</div>
+      <div class="news-tags">
+        <span class="tag physical">物理 AI</span>
+        <span class="tag embodied">具身智能</span>
+        <span class="tag capital">国内动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>物理 AI 企业深度机智完成新一轮数亿元融资，由国寿长三角科创基金领投，老股东普华资本、诚通科创基金持续加注。这是近两个月内第二轮数亿元融资。深度机制定义"人类学习"原创技术路线——用人类第一视角数据训练机器人基座模型，已建成数十万小时级 DeepAct 多模态第一视角数据集，覆盖全国十余个城市数百个真实场景。近期实现零样本泛化突破：不用专项真机训练和仿真标注，仅凭人类操作数据预训练，机器人即可自主完成全新任务。全产品线已实现商业订单，累计签约数千万元。与影石创新（Insta360）达成战略合作加速数据生态建设。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>技术路线差异化</strong>："人类学习"路线与美国主流的仿真+强化学习路线不同，用真实人类数据训练，零样本泛化突破验证了该路径可行性，核心技术布局节奏领先美国同类项目近一年。</li>
+        <li><strong>数据即壁垒</strong>：数十万小时级真实人类第一视角数据集是物理 AI 的核心资产，千万小时级规划意味着数据壁垒正在构筑。</li>
+        <li><strong>全栈落地</strong>：数据、模型、本体、场景全线落地且已有商业订单，是物理 AI 赛道落地速度最快的全栈技术公司之一。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://finance.eastmoney.com/a/202606263784808279.html" target="_blank">东方财富网：深度机智再获数亿元融资，"人类学习"全栈物理AI体系全面落地</a>
+      <a href="https://finance.ifeng.com/c/8uH27psIIJU" target="_blank">凤凰科技：深度机智再获数亿元融资</a>
+    </div>
+  </div>
+
+  <!-- 08 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">08</span>
+      <div class="news-title">8 部门联合发布 AI+消费顶层政策，智能体互联 7 项国标同步落地</div>
+      <div class="news-time">2026年6月22日 / 6月26日</div>
+      <div class="news-tags">
+        <span class="tag policy">政策动态</span>
+        <span class="tag embodied">国内动态</span>
+        <span class="tag edge">端侧 AI</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p><strong>6月22日</strong>，商务部等 8 部门联合印发《关于加快"人工智能+消费"发展的实施意见》，首次系统性推动 AI 与消费场景深度融合，重点支持 AI 终端、人形机器人、智能家电等产品消费渗透。<strong>6月26日</strong>，国家市监总局发布《人工智能 智能体互联》系列 7 项国家标准，覆盖总体架构、身份码、交互规则、工具调用等核心环节，为 AI 智能体铺设统一"铁轨"，填补全球标准空白。同期，华为小艺 Claw 面向鸿蒙全终端全面开放，成为国内首个全量推送的系统级 AI 智能体。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>消费端渗透加速</strong>：AI+消费顶层政策从供需双侧发力，为人形机器人、AI 终端等下游应用提供需求端政策拉动。</li>
+        <li><strong>标准先发优势</strong>：全球首批智能体互联国标落地，中国抢占 AI 标准化先发优势，将降低行业开发成本、加速智能体规模化落地。</li>
+        <li><strong>端侧 Agent 落地</strong>：华为小艺 Claw 全量开放标志端侧 AI 从被动响应进入主动服务阶段，系统级智能体开始重塑终端交互范式。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://deepseek.csdn.net/6a40f9b710ee7a33f2836912.html" target="_blank">CSDN：AI 一周大事盘点（6.21-6.27）含8部门AI+消费政策及智能体互联国标</a>
+    </div>
+  </div>
+
+  <!-- 09 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">09</span>
+      <div class="news-title">英伟达股东大会定调物理 AI 为下一轮核心增长引擎，Vera Rubin 全面量产</div>
+      <div class="news-time">2026年6月24日</div>
+      <div class="news-tags">
+        <span class="tag physical">物理 AI</span>
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag capital">硅谷动态</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>黄仁勋在英伟达 2026 年度股东大会上提出"AI 工厂"与 Token 经济叙事：数据中心正进化为"AI 工厂"，Token 已成为可计价的生产单位；AI 基础设施建设周期长达数十年，是人类历史上规模最大的基建之一。他明确将物理 AI 定位为下一轮核心增长引擎，Vera Rubin 平台已进入全面量产阶段。同期数据显示，英伟达数据中心以太网交换机收入暴增 193%，首次登顶全球第一，标志着其从 GPU 供应商向全栈 AI 基础设施扩张。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>长周期判断</strong>：AI 基建长周期论确立产业共识，算力从"成本中心"被重新定义为"收入生产单元"，重构了 AI 基础设施的商业叙事。</li>
+        <li><strong>物理 AI 战略定位</strong>：英伟达将物理 AI 明确定位为继训练、推理之后的下一轮增长引擎，意味着机器人/具身智能算力市场将迎来规模化投入。</li>
+        <li><strong>对上游</strong>：Vera Rubin 量产将带动 HBM、光模块、交换芯片等上游产业链；<strong>对下游</strong>：算力供给充裕+成本下降将持续利好应用层。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://deepseek.csdn.net/6a40f9b710ee7a33f2836912.html" target="_blank">CSDN：AI 一周大事盘点（6.21-6.27）含英伟达股东大会</a>
+      <a href="https://www.liangwei.cc/ai-daily/ai-daily-2026-06-27.html" target="_blank">梁伟的无聊日志：英伟达数据中心以太网交换机收入暴增193%</a>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">10</span>
+      <div class="news-title">英矽智能与SK生物制药达成25亿美元AI制药合作，打响BIO 2026大会BD第一枪</div>
+      <div class="news-time">2026年6月22日</div>
+      <div class="news-tags">
+        <span class="tag pharma">AI制药</span>
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag embodied">国内动态</span>
+        <span class="tag edge">下游应用</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>在BIO 2026国际大会前夕，港股AI制药企业英矽智能（Insilico Medicine，3696.HK）与韩国SK生物制药宣布达成总额超 25 亿美元的AI药物研发合作，聚焦神经免疫疾病领域，成为本届大会BD第一枪。英矽智能依托自研 Pharma.AI 平台完成靶点验证、分子生成与优化，将项目从立项推进至临床前候选化合物提名平均仅需 12-18 个月（传统需 2.5-4 年），每个项目仅需合成测试 60-200 个分子。SK生物制药主导后期开发及美国商业化。按潜在交易总金额计算，这是英矽智能迄今与亚太地区规模最大的一笔合作。自2021年以来，公司已提名31个临床前候选化合物，其中13个获得IND批件，并推出 MMAI Gym 科学AI训练平台，向"制药超级智能"迈进。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>AI推理下游验证</strong>：25亿美元交易金额是AI制药领域迄今最大规模的BD合作之一，标志着AI推理能力在药物发现这一高价值下游场景中获得产业级商业验证。</li>
+        <li><strong>效率革命</strong>：将临床前候选化合物提名周期从2.5-4年压缩至12-18个月，AI驱动的药物发现效率提升数倍，正在重塑制药行业研发范式。</li>
+        <li><strong>从模型到平台</strong>：MMAI Gym 将AI从"一次性预测工具"升级为可训练、可评估的"科学AI平台"，行业竞争正从单点模型能力转向平台化推理与领域知识融合。</li>
+        <li><strong>对上游</strong>：AI制药对推理算力的需求持续增长；<strong>对下游</strong>：加速创新药管线推进，神经免疫等高度未满足需求领域有望率先受益。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://finance.sina.com.cn/roll/2026-06-22/doc-iniefzfx7193746.shtml" target="_blank">新浪财经：【首发】25亿美元！AI制药打响Bio 2026大会BD第一枪</a>
+      <a href="https://www.vbdata.cn/newsDetail/337d8ae66e0e11f1990900163e034e34" target="_blank">动脉橙：超25亿美元，英矽智能宣布最新AI制药合作</a>
+      <a href="https://insilico.com/news_sc/gj31ro5gu1-pharmaai-2026" target="_blank">英矽智能官网：Pharma.AI 2026 夏季发布会——驱动制药超级智能未来</a>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="news-card">
+    <div class="news-header">
+      <span class="news-number">11</span>
+      <div class="news-title">深圳"灵晟"超算登顶全球TOP500，世界首台突破2 ExaFLOPS大关，全国产自主可控</div>
+      <div class="news-time">2026年6月23日</div>
+      <div class="news-tags">
+        <span class="tag compute">算力基础设施</span>
+        <span class="tag reasoning">AI 推理</span>
+        <span class="tag embodied">国内动态</span>
+        <span class="tag edge">上游零部件</span>
+      </div>
+    </div>
+    <div class="news-body">
+      <h3>📌 事件</h3>
+      <p>在德国汉堡ISC 2026大会上，国家超级计算深圳中心发布全国产自主研制的"灵晟"（LineShine）超级计算机，以 2.198 ExaFLOPS 持续双精度浮点性能登顶全球超算TOP500榜单，超越美国劳伦斯·利弗莫尔国家实验室的El Capitan，成为世界首台Rmax突破2 ExaFLOPS大关的系统，中国超算时隔八年重回世界第一。"灵晟"首创 Online Acceleration 全CPU架构，突破传统CPU-GPU异构壁垒，内嵌AI矩阵加速单元实现超算与智算高效协同。芯片层自研 LX2 CPU 引入多精度与矩阵加速能力，集成首颗国产HBM，内存带宽较传统CPU提升10倍；网络层自研灵启高速互连网络支持200万个端口、10万节点超大规模组网；散热首创100%全液冷，能效比达 51 GFlops/W。系统已支撑大模型推理、科学AI、药物发现等多领域应用，平均扩展效率达84.4%。</p>
+      <h3>💡 值得关注的原因</h3>
+      <ul>
+        <li><strong>算力基础设施里程碑</strong>：2 ExaFLOPS突破标志中国超算从"跟跑"重回"领跑"，国产全栈自主可控（CPU+HBM+互连+系统软件）实现历史性跨越，打破国外技术封锁。</li>
+        <li><strong>超智融合新架构</strong>：Online Acceleration 全CPU架构内嵌AI加速单元，一条系统同时支撑超算与智算（含大模型推理），代表超算从"纯科学计算"向"科学+AI融合"的范式转变。</li>
+        <li><strong>对上游</strong>：首颗国产HBM量产、自研LX2 CPU和灵启互连网络验证了国产高端芯片的工程可行性，上游核心零部件国产化进入收获期；<strong>对下游</strong>：2 ExaFLOPS算力将为大模型推理、科学AI、药物发现等AI下游应用提供充沛算力底座。</li>
+        <li><strong>地缘竞争维度</strong>：超算算力是大国AI竞争的底层基础设施，"灵晟"登顶在当前AI芯片出口管制背景下具有标志性意义。</li>
+      </ul>
+    </div>
+    <div class="news-links">
+      <h4>原文链接</h4>
+      <a href="https://news.qq.com/rain/a/20260623A09LP100" target="_blank">腾讯新闻：中国算力重回世界巅峰！深圳"灵晟"斩获全球超算TOP500榜首</a>
+      <a href="https://www.sznews.com/news/content/2026-06/24/content_32100325.htm" target="_blank">深圳新闻网：深圳"灵晟"登顶全球超算TOP500榜单，为世界首台持续性能超二百亿亿次超算系统</a>
+      <a href="https://finance.sina.com.cn/tech/digi/2026-06-23/doc-iniekvas2025119.shtml" target="_blank">新浪科技：时隔8年——中国超算"灵晟"登顶2026年6月期TOP500榜单</a>
+      <a href="https://www.esmchina.com/news/14287.html" target="_blank">ESM国际电子商情："灵晟"登顶全球超算TOP500，中国算力重回世界榜首</a>
+    </div>
+  </div>
+
+  <!-- Summary Table -->
+  <div class="summary-section">
+    <h2>📊 趋势小结</h2>
+    <table class="summary-table">
+      <thead>
+        <tr><th>维度</th><th>核心趋势</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI 推理</td>
+          <td>OpenAI 自研 Jalapeño 芯片、DeepSeek 开源 DSpark 加速框架——推理环节正同时发生"硬件自主化"和"软件工程化"双重变革，推理成本下降拐点临近</td>
+        </tr>
+        <tr>
+          <td>物理 AI</td>
+          <td>英伟达定调物理 AI 为下一轮增长引擎，深度机智"人类学习"路线验证零样本泛化——物理 AI 从概念走向工程落地，数据壁垒成为核心竞争力</td>
+        </tr>
+        <tr>
+          <td>端侧 AI</td>
+          <td>Om AI VLX 端侧原生设计、广和通 VLA 2.6倍加速——端侧 AI 从"云端模型压缩"转向"Day 1 原生设计"，VLA 端侧化打通具身智能最后一公里</td>
+        </tr>
+        <tr>
+          <td>具身智能</td>
+          <td>临界点灵巧手 5 个月独角兽且首季盈利、8部门 AI+消费政策落地——上游零部件商业价值确认，下游政策拉动需求，产业链上下游闭环加速形成</td>
+        </tr>
+        <tr>
+          <td>监管与标准</td>
+          <td>GPT-5.6 遭监管限发、智能体互联 7 项国标发布——前沿模型进入"事前审批"时代，中国在智能体标准领域抢占先发优势</td>
+        </tr>
+        <tr>
+          <td>AI 制药</td>
+          <td>英矽智能 25 亿美元BD合作打响BIO 2026第一枪，Pharma.AI平台将候选化合物提名周期压缩至12-18个月——AI推理在高价值下游场景获得产业级商业验证，MMAI Gym推动行业走向"制药超级智能"</td>
+        </tr>
+        <tr>
+          <td>算力基础设施</td>
+          <td>深圳"灵晟"超算登顶TOP500，世界首台突破2 ExaFLOPS——全国产CPU+HBM+互连全栈自主可控，超智融合架构代表超算从"纯科学计算"向"科学+AI融合"范式转变，为下游AI推理提供充沛算力底座</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <p>本简报基于公开信息整理，仅供参考，不构成投资建议。</p>
+  </div>
+
+</div>
+
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backTop">↑</button>
+
+<script>
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backTop.classList.add('show');
+    else backTop.classList.remove('show');
+  });
+</script>
+
+</body>
+</html>
